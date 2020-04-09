@@ -1,0 +1,7 @@
+.container
+    .row
+        each image in similarImgs
+            .column
+                img.similarImgs(src=`${image}` alt='Images')
+
+    a(href='/') Go back to main page

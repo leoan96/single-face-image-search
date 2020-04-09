@@ -1,0 +1,41 @@
+doctype html
+html
+    head 
+        title Reverse Image Search
+        link(rel='stylesheet' href='/css/style.css')
+        link(rel='shortcut icon' href='/img/search-favicon.png')
+    body
+        include _header
+
+        //- CONTENT
+        block content
+            //- if user 
+            //-     h2= `${user}`                
+
+            .container
+                .mainLogo
+                    img(src='/img/logo-1.png' alt='Trawla Logo')
+                form.queryForm#queryForm
+                    .query
+                        input(type='file' name='queryImg' id='queryImg' accept='image/*' required)
+                    .image-preview
+                        img.image-preview__image(src='' alt='Image Preview' width='300' height='200')
+                    button.imageSearchBtn Image Search    
+
+        //- FOOTER
+        //- include _footer
+
+        //- http://m12n.co.uk/node-access-pug-attributes-javascript-via-script-include
+        //- https://github.com/pugjs/pug/issues/3128 (should use js-stringify)
+        if user
+            script.
+                //- This is in a javascript script. Hence we are able to use 'user'(which is passed from
+                //- res.locals.user) directly without using `${user}`
+                //- https://stackoverflow.com/questions/5858218/how-can-i-render-inline-javascript-with-jade-pug
+                //- https://stackoverflow.com/questions/5070841/jade-template-engine-how-to-check-if-a-variable-exists
+                const loggedIn = !{JSON.stringify(user)};
+        else 
+            script.
+                const loggedIn = undefined
+
+        script(src='/js/bundle.js')

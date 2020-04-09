@@ -1,0 +1,45 @@
+version: "2.4"
+
+services:
+  web:
+    build:
+      context: ./search_node
+    # image: leoan96/search_node
+    environment:
+      - NODE_ENV=${NODE_ENV}
+      - PORT=${PORT}
+      - JWT_SECRET=${JWT_SECRET}
+      - JWT_EXPIRES_IN=${JWT_EXPIRES_IN}
+      - JWT_COOKIE_EXPIRES_IN=${JWT_COOKIE_EXPIRES_IN}
+      - RABBITMQ_HOST=${RABBITMQ_HOST}
+      - DATABASE_USERNAME=${DATABASE_USERNAME}
+    volumes:
+      - ./search_node:/home/node/app
+      - /home/node/app/node_modules
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - search
+      - rabbit
+      - mongo
+
+  search:
+    build:
+      context: ./search
+    # image: leoan96/search
+    environment:
+      - PYTHON_RABBITMQ_HOST=${PYTHON_RABBITMQ_HOST}
+      - PYTHON_RABBITMQ_PORT=${PYTHON_RABBITMQ_PORT}
+    depends_on:
+      - rabbit
+
+  rabbit:
+    image: "rabbitmq:3-management"
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  mongo:
+    image: "mongo"
+    ports:
+      - "27017:27017"
