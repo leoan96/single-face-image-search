@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: search-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: search
+  template:
+    metadata:
+      labels:
+        component: search
+    spec:
+      containers:
+        - name: search
+          image: leoan96/search
+          env:
+            - name: PYTHON_RABBITMQ_HOST
+              value: rabbit-cluster-ip-service
+            - name: PYTHON_RABBITMQ_PORT
+              value: "5672"

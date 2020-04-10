@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      component: web
+  template:
+    metadata:
+      labels:
+        component: web
+    spec:
+      containers:
+        - name: web
+          image: leoan96/search_node
+          ports:
+            - containerPort: 5000
+          env:
+            - name: NODE_ENV
+              value: development
+            - name: PORT
+              value: "5000"
+            - name: RABBITMQ_HOST
+              value: amqp://rabbit-cluster-ip-service
+            - name: DATABASE_USERNAME
+              value: mongodb://mongo-cluster-ip-service:27017/search
+            - name: JWT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: jwt
+                  key: JWT_SECRET
+            - name: JWT_EXPIRES_IN
+              valueFrom:
+                secretKeyRef:
+                  name: jwt
+                  key: JWT_EXPIRES_IN
+            - name: JWT_COOKIE_EXPIRES_IN
+              valueFrom:
+                secretKeyRef:
+                  name: jwt
+                  key: JWT_COOKIE_EXPIRES_IN
