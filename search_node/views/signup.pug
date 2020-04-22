@@ -1,24 +1,44 @@
 extends base
 
 block content
-    main.main
-        .signup-form
-            h2.heading-secondary.ma-bt-lg Sign Up
-            form.form.form--signup
-                .form__group
-                    label.form__label(for='firstName') First Name
-                    input#signupFirstName.form__input(type='text', placeholder='John', required)
-                .form__group.ma-bt-md
-                    label.form__label(for='password') Last Name
-                    input#signupLastName.form__input(type='text', placeholder='Smith', required)
-                .form__group.ma-bt-md
-                    label.form__label(for='password') Email Address
-                    input#signupEmail.form__input(type='email', placeholder='user@search.com', required)
-                .form__group.ma-bt-md
-                    label.form__label(for='password') Password
-                    input#signupPassword.form__input(type='password', placeholder='••••••••', required, minlength='8')
-                .form__group.ma-bt-md
-                    label.form__label(for='password') Password Confirm
-                    input#signupPasswordConfirm.form__input(type='password', placeholder='••••••••', required, minlength='8')
-                .form__group
-                    button.btn.btn--green Sign Up
+    img(src="img/wave.png", alt="", class='wave')
+    .container
+        .img
+            img(src="img/bg.svg", alt="")
+            //- signup-form (replace login-content with sigup-form in the future)
+            .login-content   
+                h2 Sign Up
+                form.form--signup
+                    img(src="img/avatar.svg", alt="")
+                    .input-div.one
+                        .i
+                            i.fas.fa-male
+                        .div
+                            h5 First Name
+                            input#signupFirstName.input(type='text', required)
+                    .input-div.one
+                        .i
+                            i.fas.fa-home
+                        .div
+                            h5 Last Name
+                            input#signupLastName.input(type='text', required)
+                    .input-div.one
+                        .i
+                            i.fas.fa-user
+                        .div
+                            h5 Email Address
+                            input#signupEmail.input(type='email', required)
+                    .input-div.one
+                        .i
+                            i.fas.fa-lock
+                        .div
+                            h5 Password
+                            input#signupPassword.input(type='password', required)
+                    .input-div.one
+                        .i
+                            i.fas.fa-lock
+                        .div
+                            h5 Password Confirm
+                            input#signupPasswordConfirm.input(type='password', required)
+                    .form__group
+                        button.btn.btn--green Sign Up

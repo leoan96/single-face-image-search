@@ -1,15 +1,25 @@
 extends base
 
 block content
-    main.main
-        .login-form
-            h2.heading-secondary.ma-bt-lg Log into your account
-            form.form.form--login
-                .form__group
-                    label.form__label(for='email') Email address
-                    input#email.form__input(type='email', placeholder='user@search.com', required)
-                .form__group.ma-bt-md
-                    label.form__label(for='password') Password
-                    input#password.form__input(type='password', placeholder='••••••••', required, minlength='8')
+    img(src="img/wave.png", alt="", class='wave')
+    .container
+        .img
+            img(src="img/bg.svg", alt="")
+        .login-content      
+            form.form--login
+                img(src="img/avatar.svg", alt="")
+                .input-div.one
+                    .i
+                        i.fas.fa-user
+                    .div
+                        h5 Email address
+                        input#email.input(type='email', required)
+                .input-div.pass
+                    .i
+                        i.fas.fa-lock
+                    .div
+                        h5 Password
+                        input#password.input(type='password', required, minlength='8')
                 .form__group
                     button.btn.btn--green Login
+

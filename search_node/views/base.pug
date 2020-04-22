@@ -3,7 +3,9 @@ html
     head 
         title Reverse Image Search
         link(rel='stylesheet' href='/css/style.css')
+        link(rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap")
         link(rel='shortcut icon' href='/img/search-favicon.png')
+        script(src="https://kit.fontawesome.com/a81368914c.js")
     body
         include _header
 
@@ -12,7 +14,7 @@ html
             //- if user 
             //-     h2= `${user}`                
 
-            .container
+            .mainContainer
                 .mainLogo
                     img(src='/img/logo-1.png' alt='Trawla Logo')
                 form.queryForm#queryForm
