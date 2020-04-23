@@ -82,7 +82,7 @@ if (queryForm) {
 			try {
 				const result = await axios({
 					method: 'POST',
-					url: 'http://localhost:5000/api/v1/search/upload',
+					url: '/api/v1/search/upload',
 					data: form,
 				});
 				console.log(`Results : ${result.data}`);
