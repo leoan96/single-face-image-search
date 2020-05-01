@@ -16,6 +16,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Top-level Directory Layout
 
+```bash
 .
 ├── overview.png
 ├── README.md
@@ -24,6 +25,7 @@ These instructions will get you a copy of the project up and running on your loc
 ├── search
 ├── search_node
 └── search_node
+```
 
 ### Installing
 
@@ -73,5 +75,6 @@ Hat tip to anyone whose code was used
 Disclaimer
 
 - The image search only works for images that contain only a single face.
-- Currently to add additional faces for image retrieval, the images would have to be added manually each to both search/imgs and search_node/public/imgs (an alternate method i think would be better is to create another express server to host the images as an API service)
-- .env files should not be included to github commits
+- Currently to add additional faces for image retrieval, the images would have to be added manually each to both search/imgs and search_node/public/imgs (an alternate method i think would be better is to create another express server to host the images as an API service).
+- .env files should not be included to github commits.
+- UI design for the results page not completed.
