@@ -48,6 +48,24 @@ Additional notes about how to deploy this on a live system using Google Cloud Pl
 
 - [Demo Website](http://34.87.41.133:5000/) - Will be taken down soon due to running out of google cloud credits
 
+## Valid Images
+
+The search currently only works for 5 person:
+
+- Mark Zuckerberg
+- Fan Bingbing
+- Jeff Bezos
+- Taylor Swift
+- Barack Obama
+
+## Screenshots
+
+![](images/main.png)
+![](images/signup.png)
+![](images/login.png)
+![](images/search.png)
+![](images/result.png)
+
 ## Built With
 
 - [ExpressJS](https://expressjs.com/) - Minimal and flexible Node.js web application framework
@@ -55,6 +73,7 @@ Additional notes about how to deploy this on a live system using Google Cloud Pl
 - [Mongoose](https://mongoosejs.com/) - MongoDB validation, casting and business logic
 - [RabbitMQ](https://www.rabbitmq.com/) - Enables the search module to be scaled horizontally
 - [Keras](https://keras.io/) - Provides face inference and retrieves similar images of query image
+- [Kubernetes](https://kubernetes.io/) - Automated container deployment, scaling, and management
 
 ## Authors
 
@@ -71,9 +90,11 @@ Hat tip to anyone whose code was used
 - https://github.com/davidsandberg/facenet
 - https://www.fabriziovanmarciano.com/button-styles/
 - https://machinelearningmastery.com/how-to-develop-a-face-recognition-system-using-facenet-in-keras-and-an-svm-classifier/
+- https://www.freelogodesign.org/
 
-Disclaimer
+## Disclaimer
 
+- Image results may not return accurate faces.
 - The image search only works for images that contain only a single face.
 - Currently to add additional faces for image retrieval, the images would have to be added manually each to both search/imgs and search_node/public/imgs (an alternate method i think would be better is to create another express server to host the images as an API service).
 - .env files should not be included to github commits.
