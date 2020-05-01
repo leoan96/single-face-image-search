@@ -1,10 +1,10 @@
 # Image Search using FaceNet
 
+This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server.
+
 ## Overview Diagram
 
 ![](overview.png)
-
-This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 ├── k8s
 ├── search
 ├── search_node
-└── source
+└── search_node
 
 ### Installing
 
@@ -40,11 +40,11 @@ Additional notes about how to deploy this on a live system using Google Cloud Pl
 - `Go to the Compute section and click on Kubernetes Engine`
 - `Create Cluster`
 - `Connect to the newly created cluster by clicking connect on the cluster dashboard`
-- `kubectl create secret generic jwt \\ --from-literal JWT_SECRET=3493edf6b95140d2e4037b63c6c8cab91db2c3e47110bbc8f5b8b3feb2c9ef36 \\ --from-literal JWT_EXPIRES_IN=3d \\ --from-literal JWT_COOKIE_EXPIRES_IN=3`
+- `kubectl create secret generic jwt \ --from-literal JWT_SECRET=3493edf6b95140d2e4037b63c6c8cab91db2c3e47110bbc8f5b8b3feb2c9ef36 \ --from-literal JWT_EXPIRES_IN=3d \ --from-literal JWT_COOKIE_EXPIRES_IN=3`
 - `Connect to the kubernetes cluster using the google Cloud SDK`
 - `type kubectl apply -f k8s`
 
-- [Demo Website](http://34.87.41.133:5000/) - Will be taken down in the future due to running out of google cloud credits
+- [Demo Website](http://34.87.41.133:5000/) - Will be taken down soon due to running out of google cloud credits
 
 ## Built With
 
@@ -64,20 +64,13 @@ This project is licensed under the MIT License
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
+Hat tip to anyone whose code was used
+
 - https://github.com/davidsandberg/facenet
 - https://www.fabriziovanmarciano.com/button-styles/
 - https://machinelearningmastery.com/how-to-develop-a-face-recognition-system-using-facenet-in-keras-and-an-svm-classifier/
 
-```
-
-```
-
----
-
 Disclaimer
-
----
 
 - The image search only works for images that contain only a single face.
 - Currently to add additional faces for image retrieval, the images would have to be added manually each to both search/imgs and search_node/public/imgs (an alternate method i think would be better is to create another express server to host the images as an API service)
