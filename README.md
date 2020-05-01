@@ -1,6 +1,10 @@
-# Project Title
+# Image Search using FaceNet
 
-One Paragraph of project description goes here
+## Overview Diagram
+
+![](overview.png)
+
+This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server.
 
 ## Getting Started
 
@@ -8,81 +12,73 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+- [Docker](https://www.docker.com/products/docker-desktop)
 
-```
-Give examples
-```
+### Top-level Directory Layout
+
+.
+├── overview.png
+├── README.md
+├── docker-compose.yml
+├── k8s
+├── search
+├── search_node
+└── source
 
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+- `git clone https://github.com/leoan96/image-search.git`
+- `docker-compose up`
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+Additional notes about how to deploy this on a live system using Google Cloud Platform and Kubernetes
+
+- `Sign in to Google Cloud Platform console`
+- `Go to the Compute section and click on Kubernetes Engine`
+- `Create Cluster`
+- `Connect to the newly created cluster by clicking connect on the cluster dashboard`
+- `kubectl create secret generic jwt \\ --from-literal JWT_SECRET=3493edf6b95140d2e4037b63c6c8cab91db2c3e47110bbc8f5b8b3feb2c9ef36 \\ --from-literal JWT_EXPIRES_IN=3d \\ --from-literal JWT_COOKIE_EXPIRES_IN=3`
+- `Connect to the kubernetes cluster using the google Cloud SDK`
+- `type kubectl apply -f k8s`
+
+- [Demo Website](http://34.87.41.133:5000/) - Will be taken down in the future due to running out of google cloud credits
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
-
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+- [ExpressJS](https://expressjs.com/) - Minimal and flexible Node.js web application framework
+- [MongoDB](https://www.mongodb.com/) - Stores user data
+- [Mongoose](https://mongoosejs.com/) - MongoDB validation, casting and business logic
+- [RabbitMQ](https://www.rabbitmq.com/) - Enables the search module to be scaled horizontally
+- [Keras](https://keras.io/) - Provides face inference and retrieves similar images of query image
 
 ## Authors
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+- **Loh Mun Kit** - _Initial work_ - [leoan96](https://github.com/leoan96)
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+This project is licensed under the MIT License
 
 ## Acknowledgments
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
+- Hat tip to anyone whose code was used
+- https://github.com/davidsandberg/facenet
+- https://www.fabriziovanmarciano.com/button-styles/
+- https://machinelearningmastery.com/how-to-develop-a-face-recognition-system-using-facenet-in-keras-and-an-svm-classifier/
 
+```
+
+```
+
+---
+
+Disclaimer
+
+---
+
+- The image search only works for images that contain only a single face.
+- Currently to add additional faces for image retrieval, the images would have to be added manually each to both search/imgs and search_node/public/imgs (an alternate method i think would be better is to create another express server to host the images as an API service)
+- .env files should not be included to github commits
