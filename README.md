@@ -98,7 +98,7 @@ Hat tip to anyone whose code was used
 - Image results may not return accurate faces.
 - Referred codes from many online sources (Still a beginner).
 - Please inform me to include any people or resources left out from the acknowledgments (I will try my best to correct the mistake).
-- The image search only works for images that contain only a single face.
+- The image search only works for images that contain only a single face (using images without the faces of the person listed in the Valid Images section would crash the server).
 - Currently to add additional faces for image retrieval, the images would have to be added manually each to both search/imgs and search_node/public/imgs (an alternate method i think would be better is to create another express server to host the images as an API service).
 - .env files should not be included to github commits.
 - UI design for the results page not completed.
