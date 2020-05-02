@@ -1,6 +1,10 @@
-# Image Search using FaceNet
+# Single Face Image Search using FaceNet
 
-This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server.
+This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server. The program can be scaled by adding more python(search directory) instances/servers and having them consume messages from the rabbitmq. This can be done by changing the replicas number in the search-deployment.yml file located in the k8s directory(using kubernetes).
+
+IMPORTANT NOTE:
+
+- The image search only works for images that contain only a single face (using images without the faces of the person listed in the Valid Images section would crash the server).
 
 ## Overview Diagram
 
