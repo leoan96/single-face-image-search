@@ -1,6 +1,6 @@
 # Single Face Image Search using FaceNet
 
-This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server. The program can be scaled by adding more python(search directory) instances/servers and having them consume messages from the rabbitmq. This can be done by changing the replicas number in the search-deployment.yml file located in the k8s directory(using kubernetes).
+This project retrieves similar images when given a query image using a convolutional neural network(FaceNet) and exposes it as an API using an ExpressJS server(using MVC architecture). The program can be scaled by adding more python(search directory) instances/servers and having them consume messages from the rabbitmq. This can be done by changing the replicas number in the search-deployment.yml file located in the k8s directory(using kubernetes).
 
 IMPORTANT NOTE:
 
